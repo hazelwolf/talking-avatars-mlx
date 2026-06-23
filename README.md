@@ -6,7 +6,7 @@ weights and the [xocialize/musetalk-mlx](https://github.com/xocialize/musetalk-m
 inference package. It follows the realtime-inference design of the original
 [TMElyralab/MuseTalk](https://github.com/TMElyralab/MuseTalk).
 
-A **driving video** (default `assets/David_first-cut.MP4`) supplies natural head
+A **driving video** (default) supplies natural head
 motion; its frames are cycled to match your audio while the mouth is re-synced.
 Drive it with typed text (macOS `say`), an uploaded/recorded clip, or the video's
 own audio. Frames stream live, then a downloadable mp4 with sound is rendered.
