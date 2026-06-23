@@ -1,0 +1,10 @@
+# Pre-commit hooks for the MuseTalk MLX avatar workspace.
+# The workspace root == git repo root, so hooks are unscoped (no `files:`).
+# Keep `rev` in sync with the `ruff>=` pin in the root pyproject dev group.
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.15.18
+    hooks:
+      - id: ruff          # lint + autofix
+        args: [--fix]
+      - id: ruff-format   # format

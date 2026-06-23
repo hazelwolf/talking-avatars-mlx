@@ -1,0 +1,20 @@
+[project]
+name = "musetalk-avatar-core"
+version = "0.1.0"
+description = "Torch-free video-driven lip-sync engine for MuseTalk 1.5 (MLX q4)"
+readme = "README.md"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "musetalk-mlx",
+    "mlx>=0.30",
+    "numpy<2",
+    "opencv-python",
+    "mediapipe>=0.10.35",
+]
+
+[tool.uv.sources]
+musetalk-mlx = { git = "https://github.com/xocialize/musetalk-mlx.git" }
+
+[build-system]
+requires = ["uv_build>=0.11,<0.12"]
+build-backend = "uv_build"

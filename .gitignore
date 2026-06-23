@@ -1,0 +1,37 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# ---- uv / virtualenv ----
+.venv/
+venv/
+# Note: pyproject.toml, uv.lock and .python-version ARE tracked (reproducible env).
+
+# ---- Downloaded models & runtime artifacts ----
+# Fetched by setup.sh: q4 weights + mediapipe face_landmarker.task
+models/
+
+# ---- Generated media / scratch ----
+samples/
+*.mp4
+*.wav
+*.aiff
+# ...but ship the synthetic sample driving video:
+!assets/sample_avatar.mp4
+# Personal assets
+assets/first-cut.MP4
+
+# ---- OS / editor ----
+.DS_Store
+*.swp
+.idea/
+.vscode/

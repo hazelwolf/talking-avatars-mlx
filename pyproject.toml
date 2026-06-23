@@ -1,0 +1,43 @@
+[project]
+name = "musetalk-mlx-avatar"
+version = "0.1.0"
+description = "MuseTalk 1.5 (MLX q4) talking-avatar workspace — Apple Silicon"
+readme = "README.md"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "musetalk-avatar-core",
+    "musetalk-avatar-app",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.15",
+    "pre-commit>=4.0",
+    "huggingface-hub[hf_xet]",  # for `uv run hf download` in setup.sh
+]
+
+[tool.uv]
+# Virtual root: orchestrates the workspace, not itself a built package.
+package = false
+# Keep the resolver off the ancient numba/llvmlite that has no Python 3.12 wheel
+# (pulled transitively via librosa). Applies workspace-wide.
+constraint-dependencies = ["numba>=0.60", "numpy<2"]
+
+[tool.uv.sources]
+musetalk-avatar-core = { workspace = true }
+musetalk-avatar-app = { workspace = true }
+
+[tool.uv.workspace]
+members = ["packages/*"]
+
+# ---- One shared lint/format config for the whole workspace ----
+[tool.ruff]
+target-version = "py310"          # matches requires-python floor
+line-length = 88
+src = ["packages/*/src", "scripts"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.ruff.format]
+quote-style = "double"

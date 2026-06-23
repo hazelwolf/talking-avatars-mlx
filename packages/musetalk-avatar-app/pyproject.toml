@@ -1,0 +1,20 @@
+[project]
+name = "musetalk-avatar-app"
+version = "0.1.0"
+description = "Gradio interface for the MuseTalk MLX talking avatar"
+readme = "README.md"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "musetalk-avatar-core",
+    "gradio",
+]
+
+[project.scripts]
+musetalk-avatar = "musetalk_avatar_app.app:main"
+
+[tool.uv.sources]
+musetalk-avatar-core = { workspace = true }
+
+[build-system]
+requires = ["uv_build>=0.11,<0.12"]
+build-backend = "uv_build"
